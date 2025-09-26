@@ -31,6 +31,11 @@ class Library{
         }
         return newBook;
     }
+
+    // Поиск книг
+    findBook(searchTerm){
+        return this.books.filter(book => book.title.includes(searchTerm));
+    }
 }
 
 const library = new Library("Тестовая библиотека")
@@ -40,3 +45,7 @@ const library = new Library("Тестовая библиотека")
 library.addBook("Преступление и наказание", "Федор Достоевский", 1866, "978-5-12345-678-9", 3);
 library.addBook("Мастер и Маргарита", "Михаил Булгаков", 1967, "978-5-12345-679-6", 2);
 console.log(library.books);
+
+// ищем книги
+const foundBooks = library.findBook("JavaScript");
+console.log(foundBooks.length);
